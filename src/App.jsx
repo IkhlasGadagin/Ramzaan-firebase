@@ -1,10 +1,20 @@
 import React from 'react';
 import Header from './components/Header';
-// import TeamSection from './components/TeamSection';
-// import ServicesSection from './components/ServicesSection';
 import Footer from './components/Footer';
 import { Box, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { getDatabase, ref, set } from "firebase/database";
+import { app } from "./firebase/firebaseConfig"
 
+const db = getDatabase(app)
+
+const putData = function () {
+  set(ref(db, "user/ikhlas"), {
+    id: 1,
+    name: "Ikhas",
+    age: 25
+  })
+
+}
 // Create theme for consistent colors and spacing
 const theme = createTheme({
   palette: {
@@ -42,6 +52,7 @@ function App() {
         bgcolor: '#f8f9fa'
       }}>
         <Header />
+        <button onClick={putData}>Put data</button>
         {/* <Box component="main" >
           <TeamSection sx={{ width: '100%' }}/>
           <ServicesSection sx={{ width: '100%' }}/>

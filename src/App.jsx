@@ -4,6 +4,8 @@ import Footer from './components/Footer';
 import { Box, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { getDatabase, ref, set } from "firebase/database";
 import { app } from "./firebase/firebaseConfig"
+import Test from './components/Test';
+import CouponCode from './components/CouponCode';
 
 const db = getDatabase(app)
 
@@ -53,10 +55,12 @@ function App() {
       }}>
         <Header />
         <button onClick={putData}>Put data</button>
+        <CouponCode />
         {/* <Box component="main" >
           <TeamSection sx={{ width: '100%' }}/>
           <ServicesSection sx={{ width: '100%' }}/>
         </Box> */}
+
         <Footer sx={{ width: '100%' }} />
       </Box>
     </ThemeProvider>
